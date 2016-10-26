@@ -8,14 +8,16 @@ import android.view.KeyEvent;
 import android.view.Window;
 import com.llf.universallibrary.tools.AppManager;
 import com.llf.universallibrary.tools.DialogTools;
+import com.llf.universallibrary.widget.SwipeBackLayout;
+
 import butterknife.ButterKnife;
 
 /**
  * Created by llf on 2016/9/29.
- * 基础的Activity
+ * 基础的Activity,支持滑动退出
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements SwipeBackLayout.OnFinishScroll{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,20 +27,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         this.initView();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ButterKnife.unbind(this);
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK){
-            finish();
-        }
-        return super.onKeyDown(keyCode, event);
     }
 
     private void doBeforeSetcontentView() {
@@ -89,6 +77,25 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void closeProgressDialog(){
         DialogTools.closeWaittingDialog();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
+    }
+
+    @Override
+    public void complete() {
+        finish();
     }
 
     public abstract int getLayoutId();
