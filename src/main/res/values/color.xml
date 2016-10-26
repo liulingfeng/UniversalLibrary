@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="yellow">#FDC401</color>
+    <color name="black">#FF000000</color>
+    <color name="orange">#EB4F38</color>
+    <color name="cycle_image_bg">#44222222</color>
+    <color name="pink">#FF4081</color>
+</resources>

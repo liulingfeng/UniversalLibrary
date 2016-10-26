@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UniversalLibrary</string>
+    <string name="back">返回</string>
+    <string name="loading">请稍候</string>
+</resources>
