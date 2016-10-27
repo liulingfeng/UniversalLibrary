@@ -18,7 +18,9 @@
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:name=".base.BaseApplication"
+        >
 
         <receiver android:name=".receiver.LaunchReceiver">
             <intent-filter>
