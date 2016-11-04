@@ -1,6 +1,7 @@
 package com.llf.universallibrary.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -14,15 +15,26 @@ public class NormalTitleBar extends RelativeLayout {
     private TextView ivBack,tvTitle, tvRight;
 
     public NormalTitleBar(Context context) {
-        super(context, null);
+        this(context, null);
     }
 
     public NormalTitleBar(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs,0);
+
+    }
+
+    public NormalTitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NormalTitleBar, defStyleAttr, 0);
+        String title = a.getString(R.styleable.NormalTitleBar_content);
+        String rightTitle = a.getString(R.styleable.NormalTitleBar_right_content);
+        a.recycle();
         View.inflate(context, R.layout.layout_head, this);
         ivBack = (TextView) findViewById(R.id.tv_back);
         tvTitle = (TextView) findViewById(R.id.tv_title);
         tvRight = (TextView) findViewById(R.id.tv_right);
+        tvTitle.setText(title);
+        tvRight.setText(rightTitle);
     }
 
     /**

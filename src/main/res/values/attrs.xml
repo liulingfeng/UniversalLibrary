@@ -34,4 +34,9 @@
         <attr name="tr_headerView" format="dimension"/>
         <attr name="tr_bottomView" format="dimension"/>
     </declare-styleable>
+    <!--通用的头部-->
+    <declare-styleable name="NormalTitleBar">
+        <attr name="content" format="string"/>
+        <attr name="right_content" format="string"/>
+    </declare-styleable>
 </resources>

@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 /**
  * Created by llf on 2016/10/14.
  * 滑动返回的Activity
+ * http://mp.weixin.qq.com/s?__biz=MjM5NDkxMTgyNw==&mid=2653058290&idx=1&sn=6bd69194a5aa23a6e574e8a3a83c1fcf&chksm=bd5657ce8a21ded8283933733e7e4644f486b63f8e70d6558a633809fa09fe818ca2322d3acf&scene=0#wechat_redirect
  */
 
 public class SwipeBackLayout extends LinearLayout{
@@ -51,6 +52,11 @@ public class SwipeBackLayout extends LinearLayout{
             }
 
             @Override
+            public int getViewVerticalDragRange(View child) {
+                return getMeasuredHeight() - child.getMeasuredHeight();
+            }
+
+            @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
                 mCurArrivePoint.x = left;
                 if (mCurEdgeFlag != ViewDragHelper.EDGE_BOTTOM) {
@@ -67,6 +73,7 @@ public class SwipeBackLayout extends LinearLayout{
                 } else return 0;
             }
 
+            //绕过tryCaptureView获得拖拽
             @Override
             public void onEdgeTouched(int edgeFlags, int pointerId) {
                 if (edgeFlags == ViewDragHelper.EDGE_LEFT) {

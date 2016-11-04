@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="main">#F5494C</color>
     <color name="white">#ffffff</color>
     <color name="yellow">#FDC401</color>
     <color name="black">#FF000000</color>
     <color name="orange">#EB4F38</color>
     <color name="cycle_image_bg">#44222222</color>
     <color name="pink">#FF4081</color>
-
+    <!--跟gg刷新控件相关-->
     <color name="Orange">#e75946</color>
     <color name="Yellow">#f4d227</color>
     <color name="Blue">#4674e7</color>

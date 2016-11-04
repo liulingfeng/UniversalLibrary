@@ -69,7 +69,7 @@ public class SinaRefreshView extends FrameLayout implements IHeaderView{
     public void onPullingDown(float fraction, float maxHeadHeight, float headHeight) {
         if (fraction < 1f) refreshTextView.setText(pullDownStr);
         if (fraction > 1f) refreshTextView.setText(releaseRefreshStr);
-        refreshArrow.setRotation(fraction * headHeight / maxHeadHeight * 180);
+        refreshArrow.setRotation(fraction * headHeight / maxHeadHeight * 180<=180?fraction * headHeight / maxHeadHeight * 180:180);
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.llf.universallibrary.tools.DialogTools;
 import com.llf.universallibrary.widget.SwipeBackLayout;
+import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
 
@@ -105,6 +106,8 @@ public abstract class BaseActivity extends AppCompatActivity implements SwipeBac
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+        RefWatcher refWatcher = BaseApplication.getRefWatcher(this);
+        refWatcher.watch(this);
     }
 
     @Override

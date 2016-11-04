@@ -1,4 +1,4 @@
-package com.llf.universallibrary.recycleview;
+package com.llf.universallibrary.common;
 
 import android.content.Context;
 import android.view.View;

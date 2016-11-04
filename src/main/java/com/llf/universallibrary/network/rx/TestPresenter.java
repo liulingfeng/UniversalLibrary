@@ -5,6 +5,7 @@ import com.llf.universallibrary.mvp.BasePresenter;
 /**
  * Created by llf on 2016/10/26.
  * 只是一个实例
+ * http://gank.io/post/560e15be2dca930e00da1083#toc_1 rxjava
  */
 
 public class TestPresenter extends BasePresenter<TestView> {

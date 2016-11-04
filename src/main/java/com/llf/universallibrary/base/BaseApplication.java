@@ -2,8 +2,10 @@ package com.llf.universallibrary.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.multidex.MultiDex;
+
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 /**
  * Created by llf on 2016/10/26.
@@ -18,14 +20,19 @@ public class BaseApplication extends Application{
         super.onCreate();
 
         baseApplication = this;
+        refWatcher = LeakCanary.install(this);
     }
 
     public static Context getAppContext() {
         return baseApplication;
     }
-    public static Resources getAppResources() {
-        return baseApplication.getResources();
+
+    public static RefWatcher getRefWatcher(Context context) {
+        BaseApplication application = (BaseApplication) context.getApplicationContext();
+        return application.refWatcher;
     }
+
+    private RefWatcher refWatcher;
 
     /**
      * 分包

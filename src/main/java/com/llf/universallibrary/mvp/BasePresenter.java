@@ -12,7 +12,7 @@ import rx.subscriptions.CompositeSubscription;
  * Created by llf on 2016/10/26.
  */
 
-public class BasePresenter<V> {
+public abstract class BasePresenter<V> {
     public V mvpView;
     protected HttpMethodService apiStores;
     private CompositeSubscription mCompositeSubscription;
@@ -41,6 +41,7 @@ public class BasePresenter<V> {
         if (mCompositeSubscription == null) {
             mCompositeSubscription = new CompositeSubscription();
         }
+
         mCompositeSubscription.add(observable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

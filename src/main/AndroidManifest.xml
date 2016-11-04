@@ -8,18 +8,18 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <supports-screens
-        android:smallScreens="true"
-        android:normalScreens="true"
-        android:largeScreens="true"
-        android:xlargeScreens="true"
         android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true"
         />
 
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".base.BaseApplication"
         >
 
         <receiver android:name=".receiver.LaunchReceiver">
@@ -28,14 +28,18 @@
             </intent-filter>
         </receiver>
         <!--图片选择器-->
-       <activity android:name=".photopicker.ImgSelActivity"
-           android:screenOrientation="portrait"
-           />
-        <!--查看图片列表的大图-->
-        <activity android:name=".photo.BigImagePagerActivity"
+        <activity
+            android:name=".photopicker.ImgSelActivity"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".base.WebViewActivity"
+        <!--查看图片列表的大图-->
+        <activity
+            android:name=".photo.BigImagePagerActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".base.WebViewActivity"
+            android:process="com.llf.webview"
             android:screenOrientation="portrait"
             />
     </application>
